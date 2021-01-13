@@ -11,9 +11,5 @@
 # If you have trouble managing your local Python versions, consider using a tool like pipenv: https://pypi.org/project/pipenv/
 virtualenv -p python3 venv
 source venv/bin/activate
-```
-
-### Running tests
-```shell script
 pytest
 ```

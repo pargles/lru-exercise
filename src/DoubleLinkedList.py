@@ -10,10 +10,11 @@ class DoubleLinkedList:
 
     # tail will always have the latest element
     def __init__(self):
-        self.tail = None
         self.head = None
+        self.tail = None
+        self.length = 0
 
-    #O(1)
+    # O(1)
     def add_element(self, key, value) -> Node:
         # empty list
         if not self.head:
@@ -25,6 +26,7 @@ class DoubleLinkedList:
             new_node = Node(last_node, None, key, value)
             last_node.next_node = new_node
             self.tail = new_node
+        self.length += 1
         return new_node
 
     # O(1)
@@ -39,6 +41,7 @@ class DoubleLinkedList:
             next_node.previous_node = previous_node
         else:
             self.tail = previous_node
+        self.length -= 1
         return node
 
     # O(1)
@@ -54,7 +57,7 @@ class DoubleLinkedList:
     def get_head(self) -> Node:
         return self.head
 
-    #O(n)
+    # O(n)
     def print_list(self):
         current_node: Node = self.head
         while current_node:
@@ -62,11 +65,6 @@ class DoubleLinkedList:
             current_node = current_node.next_node
         print("-----------------")
 
-    # O(n)
+    # O(1)
     def get_length(self):
-        current_node: Node = self.head
-        counter = 0
-        while current_node:
-            current_node = current_node.next_node
-            counter += 1
-        return counter
+        return self.length
