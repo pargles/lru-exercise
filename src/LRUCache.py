@@ -46,10 +46,8 @@ class LRUCache:
         self.current_size = 0
         self.array: DoubleLinkedList = DoubleLinkedList()
 
-
     def print_cache(self):
-        for key, value in self.cache.items():
-            print("{} {}".format(key, value.value))
+        self.array.print_list()
 
 
 if __name__ == "__main__":

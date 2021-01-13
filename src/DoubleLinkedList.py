@@ -44,7 +44,7 @@ class DoubleLinkedList:
     # O(1)
     def delete_oldest(self) -> Node:
         oldest_node: Node = self.head
-        print("discarding: {}".format(oldest_node.value))
+        print("discarding: {}-{}".format(oldest_node.key, oldest_node.value))
         self.delete_node(oldest_node)
         return oldest_node
 
@@ -58,10 +58,7 @@ class DoubleLinkedList:
     def print_list(self):
         current_node: Node = self.head
         while current_node:
-            previous_value = current_node.previous_node.value if current_node.previous_node else None
-            next_value = current_node.next_node.value if current_node.next_node else None
-            current_value = current_node.value
-            print("{} <- {} -> {} ".format(previous_value, current_value, next_value))
+            print("{} {}".format(current_node.key, current_node.value))
             current_node = current_node.next_node
         print("-----------------")
 
@@ -73,23 +70,3 @@ class DoubleLinkedList:
             current_node = current_node.next_node
             counter += 1
         return counter
-
-
-if __name__ == "__main__":
-    # list = DoubleLinkedList()
-    # some_text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry".split(" ")
-    # for word in some_text:
-    #     list.add_element(word)
-    # # list.print_list()
-    # list.delete_oldest()
-    # list.delete_oldest()
-    # print("---------------")
-    # # list.print_list()
-    dll: DoubleLinkedList = DoubleLinkedList()
-    expected_head_node = dll.add_element("1", "bananas")
-    node_to_be_deleted = dll.add_element("2", "strawberries")
-    expected_tail_node = dll.add_element("3", "mangos")
-    dll.delete_node(node_to_be_deleted)
-    assert dll.head == expected_head_node
-    assert dll.tail == expected_tail_node
-    assert dll.get_length() == 2
