@@ -12,7 +12,6 @@ class LRUCache:
         current_value: Node = self.cache.get(key, None)
         if current_value:
             self.put(key, current_value.value)
-            return current_value.value
         return current_value
 
     # O(1)
