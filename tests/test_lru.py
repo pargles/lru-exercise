@@ -27,3 +27,10 @@ def test_invert_positions_on_get():
     assert lru.array.get_length() == 2
     assert lru.array.head.key == "2"
 
+
+def test_get_no_op_for_invalid_key():
+    lru = LRUCache(2)
+    lru.put("1", "bananas")
+    lru.put("2", "blueberries")
+    assert lru.get("4") is None
+
