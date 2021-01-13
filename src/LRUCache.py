@@ -24,7 +24,6 @@ class LRUCache:
             self.current_size -= 1
         elif self.current_size >= self.max_size:
             oldest_node = self.array.delete_oldest()
-            # store the key?
             del self.cache[oldest_node.key]
         # adding to the tail of the list
         new_node: Node = self.array.add_element(key, value)
